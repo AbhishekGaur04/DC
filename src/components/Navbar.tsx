@@ -31,6 +31,7 @@ export default function Navbar() {
   }, [mobileOpen]);
 
   return (
+    <>
     <header
       className={`sticky top-0 z-50 transition-all duration-500 ${
         scrolled
@@ -129,8 +130,9 @@ export default function Navbar() {
           </div>
         </motion.button>
       </div>
+    </header>
 
-      {/* Mobile menu — fullscreen overlay */}
+      {/* Mobile menu — fullscreen overlay (outside header to avoid backdrop-blur containing block) */}
       <AnimatePresence>
         {mobileOpen && (
           <>
@@ -187,6 +189,6 @@ export default function Navbar() {
           </>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }

@@ -52,10 +52,10 @@ export const currentProjects = [
     client: "Powermech Project Ltd.",
     projects: [
       {
-        title: "Busar – Ducting & Coal Pipe Erection",
-        description: "Complete ducting and coal pipe erection work at Busar thermal power plant under Powermech Project Ltd.",
+        title: "Buxar – Ducting & Coal Pipe Erection",
+        description: "Complete ducting and coal pipe erection work at Buxar thermal power plant under Powermech Project Ltd.",
         category: "Ducting & Erection",
-        location: "Busar",
+        location: "Buxar",
         status: "In Progress" as const,
         imageUrl: "/projects/coal-pipe-erection.png",
       },
