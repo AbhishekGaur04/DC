@@ -215,12 +215,7 @@ export default function Home() {
         />
 
         {/* Background image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-10"
-          style={{
-            backgroundImage: "url('/hero-bg.webp')",
-          }}
-        />
+        <div className="absolute inset-0 bg-cover bg-center opacity-10 hero-bg-responsive" />
         <div className="absolute inset-0 bg-gradient-to-br from-primary-dark/95 via-primary/85 to-primary-dark/95" />
 
         <motion.div

@@ -63,3 +63,15 @@ body {
   background: var(--color-secondary);
   color: white;
 }
+
+/* ── Device-Isolated Responsive Hero Background ── */
+.hero-bg-responsive {
+  background-image: url('/hero-bg-mobile.webp');
+}
+
+@media (min-width: 769px) {
+  .hero-bg-responsive {
+    background-image: url('/hero-bg.webp');
+  }
+}
+
