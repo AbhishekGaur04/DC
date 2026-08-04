@@ -51,8 +51,12 @@ export default function Navbar() {
             className="relative h-12 w-12 rounded-xl bg-white flex items-center justify-center overflow-hidden shadow-md"
           >
             <img
-              src="/diamond-icon.png"
+              src="/diamond-icon.webp"
               alt="Diamond Construction"
+              width={36}
+              height={36}
+              fetchPriority="high"
+              decoding="async"
               className="h-9 w-9 object-contain"
             />
             <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

@@ -14,7 +14,7 @@ export default function Card({ title, description, imageUrl, link }: CardProps) 
       className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
       whileHover={{ scale: 1.02 }}
     >
-      <img src={imageUrl} alt={title} className="w-full h-48 object-cover" loading="lazy" />
+      <img src={imageUrl} alt={title} className="w-full h-48 object-cover" loading="lazy" decoding="async" />
       <div className="p-4">
         <h3 className="text-lg font-semibold mb-2">{title}</h3>
         {description && <p className="text-sm text-gray-600">{description}</p>}

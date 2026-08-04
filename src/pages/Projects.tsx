@@ -176,6 +176,7 @@ export default function Projects() {
                           alt={proj.title}
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                           loading="lazy"
+                          decoding="async"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/80 via-transparent to-transparent" />
 
@@ -402,6 +403,7 @@ export default function Projects() {
                   alt={img.label}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                   loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/80 via-primary-dark/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-400 flex items-end">
                   <div className="p-4 w-full">

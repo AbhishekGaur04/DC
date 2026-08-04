@@ -51,8 +51,12 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-5">
               <div className="h-11 w-11 rounded-xl bg-white flex items-center justify-center overflow-hidden shadow-md">
                 <img
-                  src="/diamond-icon.png"
+                  src="/diamond-icon.webp"
                   alt="Diamond Construction"
+                  width={32}
+                  height={32}
+                  loading="lazy"
+                  decoding="async"
                   className="h-8 w-8 object-contain"
                 />
               </div>
