@@ -1,0 +1,6 @@
+# Robots.txt for Diamond Construction (DC)
+User-agent: *
+Allow: /
+
+# Sitemap URL
+Sitemap: https://diamondconstruction.in/sitemap.xml

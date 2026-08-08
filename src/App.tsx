@@ -9,6 +9,7 @@ import Projects from "./pages/Projects";
 import WhyChooseUs from "./pages/WhyChooseUs";
 import Certifications from "./pages/Certifications";
 import Contact from "./pages/Contact";
+import Sitemap from "./pages/Sitemap";
 import NotFound from "./pages/NotFound";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path="/why-choose-us" element={<WhyChooseUs />} />
           <Route path="/certifications" element={<Certifications />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/sitemap" element={<Sitemap />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
