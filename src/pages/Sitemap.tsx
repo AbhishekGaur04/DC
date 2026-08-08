@@ -287,6 +287,12 @@ export default function Sitemap() {
                 <span className="font-mono text-secondary font-bold">08BOGPA8472K1ZM</span>
               </li>
               <li className="flex justify-between border-b border-white/5 pb-2">
+                <span>Official Domain:</span>
+                <a href="https://diamondconstructionkota.com" target="_blank" rel="noopener noreferrer" className="text-secondary font-medium hover:underline">
+                  diamondconstructionkota.com
+                </a>
+              </li>
+              <li className="flex justify-between border-b border-white/5 pb-2">
                 <span>Headquarters:</span>
                 <span className="text-white">{companyInfo.headquarters}</span>
               </li>

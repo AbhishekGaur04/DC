@@ -5,7 +5,7 @@
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <!-- Home Page -->
   <url>
-    <loc>https://diamondconstruction.in/</loc>
+    <loc>https://diamondconstructionkota.com/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
@@ -13,7 +13,7 @@
 
   <!-- About Us -->
   <url>
-    <loc>https://diamondconstruction.in/about</loc>
+    <loc>https://diamondconstructionkota.com/about</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
@@ -21,7 +21,7 @@
 
   <!-- Services -->
   <url>
-    <loc>https://diamondconstruction.in/services</loc>
+    <loc>https://diamondconstructionkota.com/services</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
@@ -29,7 +29,7 @@
 
   <!-- Projects Showcase -->
   <url>
-    <loc>https://diamondconstruction.in/projects</loc>
+    <loc>https://diamondconstructionkota.com/projects</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
@@ -37,7 +37,7 @@
 
   <!-- Process & Workflow -->
   <url>
-    <loc>https://diamondconstruction.in/process</loc>
+    <loc>https://diamondconstructionkota.com/process</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
@@ -45,7 +45,7 @@
 
   <!-- Why Choose Us -->
   <url>
-    <loc>https://diamondconstruction.in/why-choose-us</loc>
+    <loc>https://diamondconstructionkota.com/why-choose-us</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
@@ -53,7 +53,7 @@
 
   <!-- Certifications & Compliance -->
   <url>
-    <loc>https://diamondconstruction.in/certifications</loc>
+    <loc>https://diamondconstructionkota.com/certifications</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
@@ -61,7 +61,7 @@
 
   <!-- Contact Us -->
   <url>
-    <loc>https://diamondconstruction.in/contact</loc>
+    <loc>https://diamondconstructionkota.com/contact</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
@@ -69,7 +69,7 @@
 
   <!-- Visual Sitemap -->
   <url>
-    <loc>https://diamondconstruction.in/sitemap</loc>
+    <loc>https://diamondconstructionkota.com/sitemap</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.50</priority>
