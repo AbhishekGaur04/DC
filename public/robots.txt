@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap URL
-Sitemap: https://diamondconstructionkota.com/sitemap.xml
+Sitemap: https://www.diamondconstructionkota.com/sitemap.xml

@@ -9,7 +9,6 @@ const quickLinks = [
   { to: "/services", label: "Services" },
   { to: "/projects", label: "Projects" },
   { to: "/contact", label: "Contact" },
-  { to: "/sitemap", label: "Sitemap" },
 ];
 
 const serviceLinks = [

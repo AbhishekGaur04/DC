@@ -9,7 +9,7 @@ export default defineConfig({
     tailwindcss(),
   ],
   build: {
-    target: ['es2018', 'chrome64', 'firefox67', 'safari12', 'edge79'],
+    target: ['es2020', 'chrome64', 'firefox67', 'safari12', 'edge79'],
     cssTarget: ['safari12', 'chrome64', 'firefox67'],
     cssMinify: true,
     rollupOptions: {

@@ -6,17 +6,7 @@ import { companyInfo, contactDetails, services } from "../constants/companyData"
 /* ── Gradient text helper ── */
 function GradientText({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <span
-      className={className}
-      style={{
-        background: "linear-gradient(135deg, #d4952a 0%, #e8b04a 40%, #ffffff 50%, #e8b04a 60%, #d4952a 100%)",
-        backgroundSize: "200% auto",
-        WebkitBackgroundClip: "text",
-        WebkitTextFillColor: "transparent",
-        backgroundClip: "text",
-        animation: "shimmer 3s ease-in-out infinite",
-      }}
-    >
+    <span className={`gradient-text-shimmer ${className}`}>
       {children}
     </span>
   );
@@ -111,12 +101,7 @@ const itemV = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, tran
 export default function Sitemap() {
   return (
     <div className="bg-primary-dark text-white min-h-screen pb-20">
-      <style>{`
-        @keyframes shimmer {
-          0%, 100% { background-position: 0% center; }
-          50% { background-position: 200% center; }
-        }
-      `}</style>
+
 
       {/* Hero Header Banner */}
       <section className="relative pt-32 pb-16 px-6 overflow-hidden border-b border-white/10">

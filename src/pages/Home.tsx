@@ -53,7 +53,7 @@ function HeroParticles() {
       ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
     };
 
-    const init = () => {
+    const initAndDraw = () => {
       resize();
       for (let i = 0; i < 50; i++) {
         particles.push({
@@ -65,45 +65,53 @@ function HeroParticles() {
           opacity: Math.random() * 0.4 + 0.1,
         });
       }
-    };
 
-    const draw = () => {
-      ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
-      const w = canvas.offsetWidth;
-      const h = canvas.offsetHeight;
+      const draw = () => {
+        ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+        const w = canvas.offsetWidth;
+        const h = canvas.offsetHeight;
 
-      particles.forEach((p, i) => {
-        p.x += p.vx;
-        p.y += p.vy;
-        if (p.x < 0 || p.x > w) p.vx *= -1;
-        if (p.y < 0 || p.y > h) p.vy *= -1;
+        particles.forEach((p, i) => {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0 || p.x > w) p.vx *= -1;
+          if (p.y < 0 || p.y > h) p.vy *= -1;
 
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(212, 149, 42, ${p.opacity})`;
-        ctx.fill();
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(212, 149, 42, ${p.opacity})`;
+          ctx.fill();
 
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = p.x - particles[j].x;
-          const dy = p.y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 110) {
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(212, 149, 42, ${0.06 * (1 - dist / 110)})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = p.x - particles[j].x;
+            const dy = p.y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 110) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(212, 149, 42, ${0.06 * (1 - dist / 110)})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
           }
-        }
-      });
-      animId = requestAnimationFrame(draw);
+        });
+        animId = requestAnimationFrame(draw);
+      };
+      draw();
+      window.addEventListener("resize", resize);
     };
 
-    init();
-    draw();
-    window.addEventListener("resize", resize);
-    return () => { cancelAnimationFrame(animId); window.removeEventListener("resize", resize); };
+    // Defer particle init to after critical rendering
+    const idleCallback = typeof requestIdleCallback === 'function'
+      ? requestIdleCallback(initAndDraw, { timeout: 200 })
+      : setTimeout(initAndDraw, 200) as unknown as number;
+
+    return () => {
+      cancelAnimationFrame(animId);
+      window.removeEventListener("resize", resize);
+      if (typeof cancelIdleCallback === 'function') cancelIdleCallback(idleCallback);
+    };
   }, []);
 
   return (
@@ -115,20 +123,10 @@ function HeroParticles() {
   );
 }
 
-/* ── Gradient shimmer text ── */
+/* ── Gradient shimmer text (uses CSS class from index.css) ── */
 function GradientText({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <span
-      className={className}
-      style={{
-        background: "linear-gradient(135deg, #d4952a 0%, #e8b04a 40%, #ffffff 50%, #e8b04a 60%, #d4952a 100%)",
-        backgroundSize: "200% auto",
-        WebkitBackgroundClip: "text",
-        WebkitTextFillColor: "transparent",
-        backgroundClip: "text",
-        animation: "shimmer 3s ease-in-out infinite",
-      }}
-    >
+    <span className={`gradient-text-shimmer ${className}`}>
       {children}
     </span>
   );
@@ -170,21 +168,6 @@ export default function Home() {
 
   return (
     <>
-      {/* Inject keyframes */}
-      <style>{`
-        @keyframes shimmer {
-          0%, 100% { background-position: 0% center; }
-          50% { background-position: 200% center; }
-        }
-        @keyframes grid-fade {
-          0%, 100% { opacity: 0.03; }
-          50% { opacity: 0.06; }
-        }
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-8px); }
-        }
-      `}</style>
 
       {/* ── Hero Section ── */}
       <section ref={heroRef} className="relative min-h-[92vh] flex items-center justify-center overflow-hidden bg-primary-dark">
@@ -222,66 +205,45 @@ export default function Home() {
           style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}
           className="relative z-10 max-w-5xl mx-auto px-6 text-center"
         >
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          >
+          {/* Badge — renders immediately (no motion delay for LCP) */}
+          <div>
             <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-secondary/30 bg-secondary/5 mb-8">
               <span className="w-2 h-2 bg-secondary rounded-full animate-pulse" />
               <span className="text-secondary text-xs uppercase tracking-[4px] font-semibold">
                 Since 2005 — Kota, Rajasthan
               </span>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Company name */}
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          {/* Company name — LCP element, renders immediately */}
+          <h1
             className="text-4xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-4"
             style={{ fontFamily: "var(--font-display)" }}
           >
             {companyInfo.name}
-          </motion.h1>
+          </h1>
 
-          {/* Hero description */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+          {/* Hero description — renders immediately */}
+          <p
             className="text-base sm:text-lg text-white/50 max-w-3xl mx-auto mb-4 leading-relaxed"
           >
             Nearly two decades of proven mastery across Civil, Mechanical, and Structural works.
             Specializing in mission-critical infrastructure, from Thermal Power Plants and Metro
             Systems to extensive new 6-lane highway projects.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.45 }}
-            className="mb-4"
-          >
+          </p>
+          <div className="mb-4">
             <GradientText className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-wide">
               Uncompromising Quality in Every Layer
             </GradientText>
-          </motion.div>
+          </div>
 
-          {/* Divider line */}
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
+          {/* Divider line — renders immediately */}
+          <div
             className="w-24 h-[2px] bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto mb-8"
           />
 
-          {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+          {/* CTAs — renders immediately */}
+          <div
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <NavLink
@@ -299,7 +261,7 @@ export default function Home() {
             >
               Get In Touch
             </NavLink>
-          </motion.div>
+          </div>
 
           {/* Scroll indicator */}
           <motion.div

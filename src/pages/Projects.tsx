@@ -8,17 +8,7 @@ import { NavLink } from "react-router-dom";
 /* ── Gradient text ── */
 function GradientText({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <span
-      className={className}
-      style={{
-        background: "linear-gradient(135deg, #d4952a 0%, #e8b04a 40%, #ffffff 50%, #e8b04a 60%, #d4952a 100%)",
-        backgroundSize: "200% auto",
-        WebkitBackgroundClip: "text",
-        WebkitTextFillColor: "transparent",
-        backgroundClip: "text",
-        animation: "shimmer 3s ease-in-out infinite",
-      }}
-    >
+    <span className={`gradient-text-shimmer ${className}`}>
       {children}
     </span>
   );
@@ -36,12 +26,7 @@ export default function Projects() {
 
   return (
     <>
-      <style>{`
-        @keyframes shimmer {
-          0%, 100% { background-position: 0% center; }
-          50% { background-position: 200% center; }
-        }
-      `}</style>
+
 
       {/* ═══════════ Hero ═══════════ */}
       <section className="relative min-h-[55vh] flex items-center justify-center overflow-hidden bg-primary-dark">

@@ -67,12 +67,7 @@ function Particles() {
 export default function NotFound() {
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-primary-dark">
-      <style>{`
-        @keyframes shimmer {
-          0%, 100% { background-position: 0% center; }
-          50% { background-position: 200% center; }
-        }
-      `}</style>
+
 
       <Particles />
 
@@ -109,16 +104,11 @@ export default function NotFound() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.8 }}
-          className="text-[120px] sm:text-[160px] font-bold leading-none mb-2"
+          className="text-[120px] sm:text-[160px] font-bold leading-none mb-2 gradient-text-shimmer"
           style={{
             fontFamily: "var(--font-display)",
-            background: "linear-gradient(135deg, #d4952a 0%, #e8b04a 40%, #ffffff 50%, #e8b04a 60%, #d4952a 100%)",
-            backgroundSize: "200% auto",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
-            animation: "shimmer 3s ease-in-out infinite",
           }}
+
         >
           404
         </motion.h1>

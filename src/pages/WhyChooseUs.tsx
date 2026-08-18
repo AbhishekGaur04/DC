@@ -36,17 +36,7 @@ function useCounter(end: number, duration = 2000) {
 /* ── Gradient text ── */
 function GradientText({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <span
-      className={className}
-      style={{
-        background: "linear-gradient(135deg, #d4952a 0%, #e8b04a 40%, #ffffff 50%, #e8b04a 60%, #d4952a 100%)",
-        backgroundSize: "200% auto",
-        WebkitBackgroundClip: "text",
-        WebkitTextFillColor: "transparent",
-        backgroundClip: "text",
-        animation: "shimmer 3s ease-in-out infinite",
-      }}
-    >
+    <span className={`gradient-text-shimmer ${className}`}>
       {children}
     </span>
   );
@@ -114,20 +104,7 @@ export default function WhyChooseUs() {
 
   return (
     <>
-      <style>{`
-        @keyframes shimmer {
-          0%, 100% { background-position: 0% center; }
-          50% { background-position: 200% center; }
-        }
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-8px); }
-        }
-        @keyframes glow-pulse {
-          0%, 100% { box-shadow: 0 0 20px rgba(212,149,42,0.05); }
-          50% { box-shadow: 0 0 40px rgba(212,149,42,0.1); }
-        }
-      `}</style>
+
 
       {/* ── Hero ── */}
       <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden bg-primary-dark">

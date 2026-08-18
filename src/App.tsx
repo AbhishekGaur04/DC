@@ -1,33 +1,38 @@
 // src/App.tsx
+import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
-import About from "./pages/About";
-import Services from "./pages/Services";
-import Process from "./pages/Process";
-import Projects from "./pages/Projects";
-import WhyChooseUs from "./pages/WhyChooseUs";
-import Certifications from "./pages/Certifications";
-import Contact from "./pages/Contact";
-import Sitemap from "./pages/Sitemap";
-import NotFound from "./pages/NotFound";
+
+// Lazy-load below-the-fold pages to reduce initial bundle
+const About = lazy(() => import("./pages/About"));
+const Services = lazy(() => import("./pages/Services"));
+const Process = lazy(() => import("./pages/Process"));
+const Projects = lazy(() => import("./pages/Projects"));
+const WhyChooseUs = lazy(() => import("./pages/WhyChooseUs"));
+const Certifications = lazy(() => import("./pages/Certifications"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Sitemap = lazy(() => import("./pages/Sitemap"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 function App() {
   return (
     <Router>
       <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/process" element={<Process />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/why-choose-us" element={<WhyChooseUs />} />
-          <Route path="/certifications" element={<Certifications />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/sitemap" element={<Sitemap />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Suspense fallback={null}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/process" element={<Process />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/why-choose-us" element={<WhyChooseUs />} />
+            <Route path="/certifications" element={<Certifications />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/sitemap" element={<Sitemap />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </Layout>
     </Router>
   );

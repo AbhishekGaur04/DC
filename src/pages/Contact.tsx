@@ -154,17 +154,7 @@ function TiltCard({ children, className = "" }: { children: React.ReactNode; cla
 /* ─── Animated gradient text ─── */
 function GradientText({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <span
-      className={className}
-      style={{
-        background: "linear-gradient(135deg, #d4952a 0%, #e8b04a 40%, #ffffff 50%, #e8b04a 60%, #d4952a 100%)",
-        backgroundSize: "200% auto",
-        WebkitBackgroundClip: "text",
-        WebkitTextFillColor: "transparent",
-        backgroundClip: "text",
-        animation: "shimmer 3s ease-in-out infinite",
-      }}
-    >
+    <span className={`gradient-text-shimmer ${className}`}>
       {children}
     </span>
   );
@@ -269,34 +259,7 @@ export default function Contact() {
 
   return (
     <>
-      {/* Inject keyframes */}
-      <style>{`
-        @keyframes shimmer {
-          0%, 100% { background-position: 0% center; }
-          50% { background-position: 200% center; }
-        }
-        @keyframes pulse-ring {
-          0% { transform: scale(1); opacity: 0.6; }
-          100% { transform: scale(2.5); opacity: 0; }
-        }
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-12px); }
-        }
-        @keyframes grid-fade {
-          0%, 100% { opacity: 0.03; }
-          50% { opacity: 0.08; }
-        }
-        @keyframes border-flow {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-        @keyframes glow-pulse {
-          0%, 100% { box-shadow: 0 0 20px rgba(212,149,42,0.1), 0 0 60px rgba(212,149,42,0.05); }
-          50% { box-shadow: 0 0 30px rgba(212,149,42,0.2), 0 0 80px rgba(212,149,42,0.1); }
-        }
-      `}</style>
+
 
       {/* ── Hero Section ── */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-primary-dark">
