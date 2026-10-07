@@ -6,7 +6,7 @@
   <!-- Home Page -->
   <url>
     <loc>https://www.diamondconstructionkota.com/</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
@@ -14,7 +14,7 @@
   <!-- About Us -->
   <url>
     <loc>https://www.diamondconstructionkota.com/about</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -22,7 +22,7 @@
   <!-- Services -->
   <url>
     <loc>https://www.diamondconstructionkota.com/services</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
@@ -30,7 +30,7 @@
   <!-- Projects Showcase -->
   <url>
     <loc>https://www.diamondconstructionkota.com/projects</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
@@ -38,40 +38,40 @@
   <!-- Process & Workflow -->
   <url>
     <loc>https://www.diamondconstructionkota.com/process</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.80</priority>
   </url>
 
   <!-- Why Choose Us -->
   <url>
     <loc>https://www.diamondconstructionkota.com/why-choose-us</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.80</priority>
   </url>
 
   <!-- Certifications & Compliance -->
   <url>
     <loc>https://www.diamondconstructionkota.com/certifications</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
+    <priority>0.80</priority>
   </url>
 
   <!-- Contact Us -->
   <url>
     <loc>https://www.diamondconstructionkota.com/contact</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.85</priority>
   </url>
 
   <!-- Visual Sitemap -->
   <url>
     <loc>https://www.diamondconstructionkota.com/sitemap</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
+    <priority>0.60</priority>
   </url>
 </urlset>

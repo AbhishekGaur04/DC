@@ -8,16 +8,20 @@ const quickLinks = [
   { to: "/about", label: "About Us" },
   { to: "/services", label: "Services" },
   { to: "/projects", label: "Projects" },
+  { to: "/process", label: "Process" },
+  { to: "/why-choose-us", label: "Why Us" },
+  { to: "/certifications", label: "Certifications" },
   { to: "/contact", label: "Contact" },
+  { to: "/sitemap", label: "Sitemap" },
 ];
 
 const serviceLinks = [
-  "Civil Construction",
-  "Thermal Insulation",
-  "Refractory Work",
-  "Industrial Painting",
-  "Structural Work",
-  "Manpower Supply",
+  { label: "Civil Construction", to: "/services" },
+  { label: "Thermal Insulation", to: "/services" },
+  { label: "Refractory Work", to: "/services" },
+  { label: "Industrial Painting", to: "/services" },
+  { label: "Structural Work", to: "/services" },
+  { label: "Manpower Supply", to: "/services" },
 ];
 
 export default function Footer() {
@@ -113,11 +117,14 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5">
               {serviceLinks.map((svc) => (
-                <li key={svc}>
-                  <span className="group flex items-center gap-2 text-sm text-white/50 hover:text-white/70 transition-colors duration-300 cursor-default">
-                    <span className="w-1 h-1 rounded-full bg-white/20" />
-                    {svc}
-                  </span>
+                <li key={svc.label}>
+                  <NavLink
+                    to={svc.to}
+                    className="group flex items-center gap-2 text-sm text-white/50 hover:text-white transition-colors duration-300"
+                  >
+                    <span className="w-1 h-1 rounded-full bg-secondary/40 group-hover:bg-secondary group-hover:scale-150 transition-all duration-300" />
+                    {svc.label}
+                  </NavLink>
                 </li>
               ))}
             </ul>

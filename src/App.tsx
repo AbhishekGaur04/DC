@@ -1,6 +1,7 @@
 // src/App.tsx
 import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SEO from "./components/SEO";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 
@@ -18,6 +19,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 function App() {
   return (
     <Router>
+      <SEO />
       <Layout>
         <Suspense fallback={null}>
           <Routes>
